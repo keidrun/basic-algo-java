@@ -17,7 +17,7 @@ import org.junit.experimental.theories.Theory;
 import org.junit.runner.RunWith;
 
 @RunWith(Enclosed.class)
-public class BubbleSortTest {
+public class QuickSortTest {
 
     @RunWith(Theories.class)
     public static class sortTest {
@@ -25,7 +25,7 @@ public class BubbleSortTest {
 
         @Before
         public void setup() throws Exception {
-            sut = new BubbleSort();
+            sut = new QuickSort();
         }
 
         // @formatter:off

@@ -18,24 +18,21 @@ public class BubbleSort implements Sort {
      * @see sort.Sort#sort(java.util.List)
      */
     @Override
-    public List<Integer> sort(List<Integer> list) {
+    public void sort(List<Integer> list) {
         boolean isSorted = false;
         int sortedNum = 0;
 
         do {
             isSorted = true;
-            for (int i = 0; i < list.size() - 1 - sortedNum ; i++) {
+            for (int i = 0; i < list.size() - 1 - sortedNum; i++) {
                 if (list.get(i) > list.get(i + 1)) {
                     isSorted = false;
-                    Integer temp = list.get(i);
-                    list.set(i, list.get(i + 1));
-                    list.set(i + 1, temp);
+                    swipe(i, i + 1, list);
                 }
             }
             sortedNum++;
         } while (!isSorted);
 
-        return list;
     }
 
 }
