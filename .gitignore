@@ -1,8 +1,5 @@
+# java
 *.class
-
-# gradle
-build/*
-!build/build.xml
 
 # eclipse
 .classpath
@@ -10,13 +7,27 @@ build/*
 .settings/*
 bin/*
 
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
+# gradle
+.gradle
+!gradle-wrapper.jar
+build/*
+!build/build.xml
+
+# maven
+target
 
 # Package Files #
 *.jar
 *.war
 *.ear
+
+# others
+*.log
+*.swp
+*.bak
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*

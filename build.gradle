@@ -1,5 +1,16 @@
 apply plugin: 'java'
 
+def defaultEncoding = 'UTF-8'
+
+tasks.withType(JavaCompile){
+    options.encoding = defaultEncoding
+}
+
+def compatibility = 1.8
+
+sourceCompatibility = compatibility
+targetCompatibility = compatibility
+
 repositories {
     jcenter()
 }
@@ -8,3 +19,9 @@ dependencies {
     compile 'org.slf4j:slf4j-api:1.7.21'
     testCompile 'junit:junit:4.12'
 }
+
+# for Enclosed Test
+test {
+    exclude '**/*$*'
+}
+
