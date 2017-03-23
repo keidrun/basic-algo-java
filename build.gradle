@@ -1,15 +1,15 @@
 apply plugin: 'java'
+apply plugin: 'jacoco'
 
+def compatibility = 1.8
 def defaultEncoding = 'UTF-8'
+
+sourceCompatibility = compatibility
+targetCompatibility = compatibility
 
 tasks.withType(JavaCompile){
     options.encoding = defaultEncoding
 }
-
-def compatibility = 1.8
-
-sourceCompatibility = compatibility
-targetCompatibility = compatibility
 
 repositories {
     jcenter()
@@ -20,8 +20,22 @@ dependencies {
     testCompile 'junit:junit:4.12'
 }
 
-# for Enclosed Test
+// for Enclosed Test
 test {
     exclude '**/*$*'
 }
 
+// coverage
+jacoco {
+    toolVersion = "0.7.+"
+}
+
+task jacoco(type: JacocoReport, dependsOn: 'test') {
+    sourceSets sourceSets.main
+    executionData = files(tasks.jacocoTestReport.executionData)
+    reports {
+        html.enabled = true
+        xml.enabled = false
+        csv.enabled = false
+    }
+}
