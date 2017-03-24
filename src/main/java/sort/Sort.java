@@ -29,7 +29,7 @@ public interface Sort {
      */
     default void swipe(int indexA, int indexB, List<Integer> list) {
 
-        if (indexA < 0 || indexB < 0 || list.size() < indexA || list.size() < indexB) {
+        if (indexA < 0 || indexB < 0 || list.size() <= indexA || list.size() <= indexB) {
             throw new IllegalArgumentException("Bad arguments.");
         }
 
