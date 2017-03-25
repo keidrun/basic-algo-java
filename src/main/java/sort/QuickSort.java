@@ -10,7 +10,7 @@ import java.util.List;
  * 
  * @author Keid
  */
-public class QuickSort implements Sort {
+public class QuickSort implements Sort<Integer> {
 
     /*
      * (non-Javadoc)

@@ -10,6 +10,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.junit.Before;
+import org.junit.Test;
 import org.junit.experimental.runners.Enclosed;
 import org.junit.experimental.theories.DataPoints;
 import org.junit.experimental.theories.Theories;
@@ -21,7 +22,7 @@ public class BubbleSortTest {
 
     @RunWith(Theories.class)
     public static class sortTest {
-        static Sort sut;
+        static Sort<Integer> sut;
 
         @Before
         public void setup() throws Exception {
@@ -35,6 +36,8 @@ public class BubbleSortTest {
                         Arrays.asList(0, 1, 2, 3, 4, 5, 6, 7, 8, 9)),
                 new Fixture(Arrays.asList(0, 1, 2, 3, 4, 9, 8, 7, 6, 5),
                         Arrays.asList(0, 1, 2, 3, 4, 5, 6, 7, 8, 9)),
+                new Fixture(Arrays.asList( 4, 3, 2, 1, 0, 0, 1, 2, 3, 4),
+                        Arrays.asList(0, 0, 1, 1, 2, 2, 3, 3, 4, 4)),
                 new Fixture(Arrays.asList(5, 4, 3, 2, 1, 0, -1, -2, -3, -4),
                         Arrays.asList(-4, -3, -2, -1, 0, 1, 2, 3, 4, 5)),
                 new Fixture(Arrays.asList(50, 40, 30, 20, 10, 0, -10, -20, -30, -40),
@@ -63,6 +66,46 @@ public class BubbleSortTest {
             Fixture(List<Integer> notSortedList, List<Integer> sortedList) {
                 this.notSortedList = notSortedList;
                 this.sortedList = sortedList;
+            }
+        }
+
+    }
+
+    @RunWith(Theories.class)
+    public static class swipeTest {
+
+        static Sort<Integer> sut;
+
+        @Before
+        public void setup() throws Exception {
+            sut = new BubbleSort();
+        }
+
+       // @formatter:off
+        @DataPoints
+        public static Fixture[] FIXTUREs  = {
+                new Fixture(-1, 0, Arrays.asList(0,1,2,3,4)),
+                new Fixture(0, -1, Arrays.asList(0,1,2,3,4)),
+                new Fixture(5, 0, Arrays.asList(0,1,2,3,4)),
+                new Fixture(0, 5, Arrays.asList(0,1,2,3,4))
+        };
+        //@formatter:on
+
+        @Theory
+        @Test(expected = IllegalArgumentException.class)
+        public void badArguments(Fixture fixture) {
+            sut.swipe(fixture.indexA, fixture.indexB, fixture.list);
+        }
+
+        static class Fixture {
+            int indexA;
+            int indexB;
+            List<Integer> list;
+
+            Fixture(int indexA, int indexB, List<Integer> list) {
+                this.indexA = indexA;
+                this.indexB = indexB;
+                this.list = list;
             }
         }
 

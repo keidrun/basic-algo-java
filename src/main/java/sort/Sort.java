@@ -10,7 +10,7 @@ import java.util.List;
  * 
  * @author Keid
  */
-public interface Sort {
+public interface Sort <T> {
 
     /**
      * Sort
@@ -18,7 +18,7 @@ public interface Sort {
      * @param list
      *            Not sorted data
      */
-    public void sort(List<Integer> list);
+    public void sort(List<T> list);
 
     /**
      * Swipe A and B
@@ -27,13 +27,13 @@ public interface Sort {
      * @param indexB
      * @param list
      */
-    default void swipe(int indexA, int indexB, List<Integer> list) {
+    default void swipe(int indexA, int indexB, List<T> list) {
 
-        if (indexA < 0 || indexB < 0 || list.size() < indexA || list.size() < indexB) {
+        if (indexA < 0 || indexB < 0 || list.size() <= indexA || list.size() <= indexB) {
             throw new IllegalArgumentException("Bad arguments.");
         }
 
-        int temp = list.get(indexA);
+        T temp = list.get(indexA);
         list.set(indexA, list.get(indexB));
         list.set(indexB, temp);
     }
