@@ -22,7 +22,7 @@ public class BubbleSortTest {
 
     @RunWith(Theories.class)
     public static class sortTest {
-        static Sort sut;
+        static Sort<Integer> sut;
 
         @Before
         public void setup() throws Exception {
@@ -36,6 +36,8 @@ public class BubbleSortTest {
                         Arrays.asList(0, 1, 2, 3, 4, 5, 6, 7, 8, 9)),
                 new Fixture(Arrays.asList(0, 1, 2, 3, 4, 9, 8, 7, 6, 5),
                         Arrays.asList(0, 1, 2, 3, 4, 5, 6, 7, 8, 9)),
+                new Fixture(Arrays.asList( 4, 3, 2, 1, 0, 0, 1, 2, 3, 4),
+                        Arrays.asList(0, 0, 1, 1, 2, 2, 3, 3, 4, 4)),
                 new Fixture(Arrays.asList(5, 4, 3, 2, 1, 0, -1, -2, -3, -4),
                         Arrays.asList(-4, -3, -2, -1, 0, 1, 2, 3, 4, 5)),
                 new Fixture(Arrays.asList(50, 40, 30, 20, 10, 0, -10, -20, -30, -40),
@@ -72,7 +74,7 @@ public class BubbleSortTest {
     @RunWith(Theories.class)
     public static class swipeTest {
 
-        static Sort sut;
+        static Sort<Integer> sut;
 
         @Before
         public void setup() throws Exception {

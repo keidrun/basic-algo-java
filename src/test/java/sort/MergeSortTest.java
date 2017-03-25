@@ -10,7 +10,6 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.junit.Before;
-import org.junit.Test;
 import org.junit.experimental.runners.Enclosed;
 import org.junit.experimental.theories.DataPoints;
 import org.junit.experimental.theories.Theories;
@@ -18,15 +17,14 @@ import org.junit.experimental.theories.Theory;
 import org.junit.runner.RunWith;
 
 @RunWith(Enclosed.class)
-public class QuickSortTest {
-
+public class MergeSortTest {
     @RunWith(Theories.class)
     public static class sortTest {
         static Sort<Integer> sut;
 
         @Before
         public void setup() throws Exception {
-            sut = new QuickSort();
+            sut = new MergeSort();
         }
 
         // @formatter:off
@@ -68,47 +66,7 @@ public class QuickSortTest {
                 this.sortedList = sortedList;
             }
         }
-
     }
 
-    @RunWith(Theories.class)
-    public static class swipeTest {
-
-        static Sort<Integer> sut;
-
-        @Before
-        public void setup() throws Exception {
-            sut = new BubbleSort();
-        }
-
-       // @formatter:off
-        @DataPoints
-        public static Fixture[] FIXTUREs  = {
-                new Fixture(-1, 0, Arrays.asList(0,1,2,3,4)),
-                new Fixture(0, -1, Arrays.asList(0,1,2,3,4)),
-                new Fixture(5, 0, Arrays.asList(0,1,2,3,4)),
-                new Fixture(0, 5, Arrays.asList(0,1,2,3,4))
-        };
-        //@formatter:on
-
-        @Theory
-        @Test(expected = IllegalArgumentException.class)
-        public void badArguments(Fixture fixture) {
-            sut.swipe(fixture.indexA, fixture.indexB, fixture.list);
-        }
-
-        static class Fixture {
-            int indexA;
-            int indexB;
-            List<Integer> list;
-
-            Fixture(int indexA, int indexB, List<Integer> list) {
-                this.indexA = indexA;
-                this.indexB = indexB;
-                this.list = list;
-            }
-        }
-
-    }
 
 }

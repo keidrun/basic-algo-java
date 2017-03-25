@@ -10,7 +10,7 @@ import java.util.List;
  * 
  * @author Keid
  */
-public class BubbleSort implements Sort {
+public class BubbleSort implements Sort<Integer> {
 
     /*
      * (non-Javadoc)
