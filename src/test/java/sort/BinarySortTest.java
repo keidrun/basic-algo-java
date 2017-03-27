@@ -44,15 +44,19 @@ public class BinarySortTest {
         //@formatter:on
 
         @Theory
-        public void returnCorrectlySortedList(Fixture fixture) throws Exception {
+        public void sortListCorrectly(Fixture fixture) throws Exception {
+
+            // setup
+            List<Integer> expectedList = fixture.sortedList;
 
             // exercise
             List<Integer> actualList = fixture.notSortedList;
             sut.sort(actualList);
 
             // verify
+            assertThat(actualList.size(), is(expectedList.size()));
             for (int i = 0; i < actualList.size(); i++) {
-                assertThat(actualList.get(i), is(fixture.sortedList.get(i)));
+                assertThat(actualList.get(i), is(expectedList.get(i)));
             }
 
         }
