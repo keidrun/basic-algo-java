@@ -12,6 +12,8 @@ import java.util.List;
  */
 public class LinearSearch implements Search<Integer> {
 
+    private static final int NOT_FOUND = -1;
+
     /*
      * (non-Javadoc)
      * 
@@ -26,8 +28,7 @@ public class LinearSearch implements Search<Integer> {
             }
         }
 
-        // not found
-        return -1;
+        return NOT_FOUND;
     }
 
 }
