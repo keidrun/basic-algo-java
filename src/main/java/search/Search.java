@@ -12,6 +12,8 @@ import java.util.List;
  */
 public interface Search<T> {
 
+    static final int NOT_FOUND = -1;
+
     /**
      * Search
      * 

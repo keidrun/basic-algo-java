@@ -12,8 +12,6 @@ import java.util.List;
  */
 public class BinarySearch implements Search<Integer> {
 
-    private static final int NOT_FOUND = -1;
-
     private static enum Pattern {
         LEFT, MID, RIGHT;
     }
