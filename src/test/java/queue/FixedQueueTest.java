@@ -1,7 +1,7 @@
 /**
  * Copyright 2017 Keid
 */
-package collection;
+package queue;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.*;
@@ -9,21 +9,23 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
+import queue.FixedQueue;
+
 /**
  * @author Keid
  *
  */
-public class FixedStackTest {
+public class FixedQueueTest {
 
-    FixedStack<Integer> sut;
+    FixedQueue<Integer> sut;
 
     @Before
     public void setUp() throws Exception {
-        sut = new FixedStack<Integer>(5);
+        sut = new FixedQueue<Integer>(5);
     }
 
     @Test
-    public void testPushAndPop() {
+    public void testEnqueueAndDequeue() {
 
         // setup
         int first = 1;
@@ -36,21 +38,21 @@ public class FixedStackTest {
         assertFalse(sut.isFull());
 
         // exercise
-        sut.push(first);
-        sut.push(second);
-        sut.push(third);
-        sut.push(fourth);
-        sut.push(fifth);
+        sut.enqueue(first);
+        sut.enqueue(second);
+        sut.enqueue(third);
+        sut.enqueue(fourth);
+        sut.enqueue(fifth);
 
         // verify
         assertEquals(5, sut.size());
         assertFalse(sut.isEmpty());
         assertTrue(sut.isFull());
-        assertThat(sut.pop(), is(fifth));
-        assertThat(sut.pop(), is(fourth));
-        assertThat(sut.pop(), is(third));
-        assertThat(sut.pop(), is(second));
-        assertThat(sut.pop(), is(first));
+        assertThat(sut.dequeue(), is(first));
+        assertThat(sut.dequeue(), is(second));
+        assertThat(sut.dequeue(), is(third));
+        assertThat(sut.dequeue(), is(fourth));
+        assertThat(sut.dequeue(), is(fifth));
         assertEquals(0, sut.size());
         assertTrue(sut.isEmpty());
         assertFalse(sut.isFull());
@@ -58,12 +60,12 @@ public class FixedStackTest {
     }
 
     @Test(expected = IllegalStateException.class)
-    public void testStackUnderflow() {
-        sut.pop();
+    public void testQueueUnderflow() {
+        sut.dequeue();
     }
 
     @Test(expected = IllegalStateException.class)
-    public void testStackOverflow() {
+    public void testQueueOverflow() {
         // setup
         int first = 1;
         int second = 2;
@@ -71,14 +73,14 @@ public class FixedStackTest {
         int fourth = -4;
         int fifth = -5;
         int additional = 6;
-        sut.push(first);
-        sut.push(second);
-        sut.push(third);
-        sut.push(fourth);
-        sut.push(fifth);
+        sut.enqueue(first);
+        sut.enqueue(second);
+        sut.enqueue(third);
+        sut.enqueue(fourth);
+        sut.enqueue(fifth);
 
         // exercise
-        sut.push(additional);
+        sut.enqueue(additional);
     }
 
     @Test
@@ -94,11 +96,11 @@ public class FixedStackTest {
         int additionalThree = 80;
         int additionalFour = 90;
         int additionalFive = 100;
-        sut.push(first);
-        sut.push(second);
-        sut.push(third);
-        sut.push(fourth);
-        sut.push(fifth);
+        sut.enqueue(first);
+        sut.enqueue(second);
+        sut.enqueue(third);
+        sut.enqueue(fourth);
+        sut.enqueue(fifth);
         assertEquals(5, sut.size());
         assertTrue(sut.isFull());
 
@@ -108,24 +110,25 @@ public class FixedStackTest {
         // verify
         assertEquals(5, sut.size());
         assertFalse(sut.isFull());
-        sut.push(additionalOne);
-        sut.push(additionalTwo);
-        sut.push(additionalThree);
-        sut.push(additionalFour);
-        sut.push(additionalFive);
+        sut.enqueue(additionalOne);
+        sut.enqueue(additionalTwo);
+        sut.enqueue(additionalThree);
+        sut.enqueue(additionalFour);
+        sut.enqueue(additionalFive);
         assertEquals(10, sut.size());
         assertTrue(sut.isFull());
 
-        assertThat(sut.pop(), is(additionalFive));
-        assertThat(sut.pop(), is(additionalFour));
-        assertThat(sut.pop(), is(additionalThree));
-        assertThat(sut.pop(), is(additionalTwo));
-        assertThat(sut.pop(), is(additionalOne));
-        assertThat(sut.pop(), is(fifth));
-        assertThat(sut.pop(), is(fourth));
-        assertThat(sut.pop(), is(third));
-        assertThat(sut.pop(), is(second));
-        assertThat(sut.pop(), is(first));
+        assertThat(sut.dequeue(), is(first));
+        assertThat(sut.dequeue(), is(second));
+        assertThat(sut.dequeue(), is(third));
+        assertThat(sut.dequeue(), is(fourth));
+        assertThat(sut.dequeue(), is(fifth));
+        assertThat(sut.dequeue(), is(additionalOne));
+        assertThat(sut.dequeue(), is(additionalTwo));
+        assertThat(sut.dequeue(), is(additionalThree));
+        assertThat(sut.dequeue(), is(additionalFour));
+        assertThat(sut.dequeue(), is(additionalFive));
+
         assertEquals(0, sut.size());
         assertTrue(sut.isEmpty());
 
@@ -139,11 +142,11 @@ public class FixedStackTest {
         int third = 3;
         int fourth = -4;
         int fifth = -5;
-        sut.push(first);
-        sut.push(second);
-        sut.push(third);
-        sut.push(fourth);
-        sut.push(fifth);
+        sut.enqueue(first);
+        sut.enqueue(second);
+        sut.enqueue(third);
+        sut.enqueue(fourth);
+        sut.enqueue(fifth);
         assertEquals(5, sut.size());
         assertTrue(sut.isFull());
 

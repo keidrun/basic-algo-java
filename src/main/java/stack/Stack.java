@@ -1,7 +1,7 @@
 /**
  * Copyright 2017 Keid
 */
-package collection;
+package stack;
 
 /**
  * Stack

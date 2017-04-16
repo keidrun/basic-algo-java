@@ -1,48 +1,48 @@
 /**
  * Copyright 2017 Keid
 */
-package collection;
+package queue;
 
 import java.util.LinkedList;
 import java.util.List;
 
 /**
- * Stack of LinkedList
+ * Queue of LinkedList
  * 
  * @author Keid
  */
-public class FlexibleStack<E> implements Stack<E> {
+public class FlexibleQueue<E> implements Queue<E> {
 
     private transient List<E> list;
 
-    public FlexibleStack() {
-        this.list = new LinkedList<E>();
+    public FlexibleQueue() {
+        list = new LinkedList<>();
     }
 
     /*
      * (non-Javadoc)
      * 
-     * @see collection.Stack#push(java.lang.Object)
+     * @see collection.Queue#enqueue(java.lang.Object)
      */
     @Override
-    public void push(E element) {
+    public void enqueue(E element) {
         list.add(element);
     }
 
     /*
      * (non-Javadoc)
      * 
-     * @see collection.Stack#pop()
+     * @see collection.Queue#dequeue()
      */
     @Override
-    public E pop() {
-        return ((LinkedList<E>) list).removeLast();
+    public E dequeue() {
+        return ((LinkedList<E>) list).removeFirst();
     }
 
     /*
      * (non-Javadoc)
      * 
-     * @see collection.Stack#isEmpty()
+     * @see collection.Queue#isEmpty()
      */
     @Override
     public boolean isEmpty() {
@@ -50,7 +50,7 @@ public class FlexibleStack<E> implements Stack<E> {
     }
 
     /* (non-Javadoc)
-     * @see collection.Stack#size()
+     * @see collection.Queue#size()
      */
     @Override
     public int size() {

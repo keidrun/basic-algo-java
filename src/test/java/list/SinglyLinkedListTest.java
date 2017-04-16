@@ -1,7 +1,7 @@
 /**
  * Copyright 2017 Keid
 */
-package collection;
+package list;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertEquals;
@@ -10,13 +10,15 @@ import static org.junit.Assert.assertThat;
 import org.junit.Before;
 import org.junit.Test;
 
-public class DoublyLinkedListTest {
+import list.SinglyLinkedList;
 
-    DoublyLinkedList<Integer> sut;
+public class SinglyLinkedListTest {
+
+    SinglyLinkedList<Integer> sut;
 
     @Before
     public void setUp() throws Exception {
-        sut = new DoublyLinkedList<Integer>();
+        sut = new SinglyLinkedList<Integer>();
     }
 
     @Test
