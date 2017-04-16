@@ -31,20 +31,20 @@ public class OrganizationSearchTest {
         }
 
         // @formatter:off
-            @DataPoints
-            public static Fixture[] FIXTUREs = {
-                    // Found
-                    new Fixture(10, 10, new int[]{0,1,2,3,4,5,6,7,8,9,10}, new int[]{10,0,1,2,3,4,5,6,7,8,9}),
-                    new Fixture(10, 0, new int[]{10,0,1,2,3,4,5,6,7,8,9}, new int[]{10,0,1,2,3,4,5,6,7,8,9}),
-                    new Fixture(10, 5, new int[]{0,1,2,3,4,10,6,7,8,9,5}, new int[]{10,0,1,2,3,4,6,7,8,9,5}),
-                    new Fixture(-5, 0, new int[]{-5,-4,-3,-2,-1,0,1,2,3,4,5}, new int[]{-5,-4,-3,-2,-1,0,1,2,3,4,5}),
-                    new Fixture(-5, 10, new int[]{5,-4,-3,-2,-1,0,1,2,3,4,-5}, new int[]{-5,5,-4,-3,-2,-1,0,1,2,3,4}),
-                    new Fixture(-5, 5, new int[]{0,-4,-3,-2,-1,-5,1,2,3,4,5}, new int[]{-5,0,-4,-3,-2,-1,1,2,3,4,5}),
-                    // Not found
-                    new Fixture(6, -1, new int[]{-5,-4,-3,-2,-1,0,1,2,3,4,5}, new int[]{-5,-4,-3,-2,-1,0,1,2,3,4,5}),
-                    new Fixture(-6, -1, new int[]{-5,-4,-3,-2,-1,0,1,2,3,4,5}, new int[]{-5,-4,-3,-2,-1,0,1,2,3,4,5})
-            };
-            // @formatter:on
+        @DataPoints
+        public static Fixture[] FIXTUREs = {
+            // Found
+            new Fixture(10, 10, new int[]{0,1,2,3,4,5,6,7,8,9,10}, new int[]{10,0,1,2,3,4,5,6,7,8,9}),
+            new Fixture(10, 0, new int[]{10,0,1,2,3,4,5,6,7,8,9}, new int[]{10,0,1,2,3,4,5,6,7,8,9}),
+            new Fixture(10, 5, new int[]{0,1,2,3,4,10,6,7,8,9,5}, new int[]{10,0,1,2,3,4,6,7,8,9,5}),
+            new Fixture(-5, 0, new int[]{-5,-4,-3,-2,-1,0,1,2,3,4,5}, new int[]{-5,-4,-3,-2,-1,0,1,2,3,4,5}),
+            new Fixture(-5, 10, new int[]{5,-4,-3,-2,-1,0,1,2,3,4,-5}, new int[]{-5,5,-4,-3,-2,-1,0,1,2,3,4}),
+            new Fixture(-5, 5, new int[]{0,-4,-3,-2,-1,-5,1,2,3,4,5}, new int[]{-5,0,-4,-3,-2,-1,1,2,3,4,5}),
+            // Not found
+            new Fixture(6, -1, new int[]{-5,-4,-3,-2,-1,0,1,2,3,4,5}, new int[]{-5,-4,-3,-2,-1,0,1,2,3,4,5}),
+            new Fixture(-6, -1, new int[]{-5,-4,-3,-2,-1,0,1,2,3,4,5}, new int[]{-5,-4,-3,-2,-1,0,1,2,3,4,5})
+        };
+        // @formatter:on
 
         @Theory
         public void returnSearchedIndex(Fixture fixture) {

@@ -4,15 +4,15 @@
 package collection;
 
 /**
- * Linked list.
+ * Doubly linked list.
  * 
  * @author Keid
  */
-public class LinkedList<E> {
+public class DoublyLinkedList<E> implements List<E> {
 
-    private int capacity;
-    private Node<E> first;
-    private Node<E> last;
+    private transient int size;
+    private transient Node<E> header;
+    private transient Node<E> last;
 
     private static class Node<E> {
         E element;
@@ -26,22 +26,43 @@ public class LinkedList<E> {
         }
     }
 
-    public LinkedList() {
-        capacity = 0;
-        first = last = new Node<E>(null, null, null);
+    public DoublyLinkedList() {
+        size = 0;
+        header = last = new Node<E>(null, null, null);
     }
 
     /**
-     * Add element after the last element.
+     * Add the element after the last element.
      * 
      * @param element
+     *            the element
      */
     public void add(E element) {
 
-        Node<E> newNode = new Node<E>(last, element, first);
-        first.prev = last.next = last = newNode;
-        capacity++;
+        Node<E> newNode = new Node<E>(last, element, header);
+        header.prev = last.next = last = newNode;
+        size++;
 
+    }
+
+    /**
+     * Add the element before the first element.
+     * 
+     * @param element
+     *            the element
+     */
+    public void addFirst(E element) {
+        set(0, element);
+    }
+
+    /**
+     * Add the element after the last element.
+     * 
+     * @param element
+     *            the element
+     */
+    public void addLast(E element) {
+        add(element);
     }
 
     /**
@@ -54,16 +75,34 @@ public class LinkedList<E> {
     public E remove(int index) {
 
         Node<E> node = node(index);
-        if (index == (capacity - 1)) {
+        if (index == (size - 1)) {
             node.prev.next = node.next;
             last = node.prev;
         } else {
             node.prev.next = node.next;
             node.next.prev = node.prev;
         }
-        capacity--;
+        size--;
 
         return node.element;
+    }
+
+    /**
+     * Remove the first element.
+     * 
+     * @return the removed element
+     */
+    public E removeFirst() {
+        return remove(0);
+    }
+
+    /**
+     * Remove the last element.
+     * 
+     * @return the removed element
+     */
+    public E removeLast() {
+        return remove(size - 1);
     }
 
     /**
@@ -77,7 +116,7 @@ public class LinkedList<E> {
     public void set(int index, E element) {
 
         Node<E> node = node(index);
-        if (index == (capacity - 1)) {
+        if (index == (size - 1)) {
             Node<E> newNode = new Node<E>(last.prev.next, element, node);
             last.prev.next = newNode;
             last = newNode;
@@ -86,7 +125,7 @@ public class LinkedList<E> {
             node.prev.next = newNode;
             node.prev = newNode;
         }
-        capacity++;
+        size++;
 
     }
 
@@ -102,21 +141,12 @@ public class LinkedList<E> {
     }
 
     /**
-     * Get the capacity
-     * 
-     * @return the capacity
-     */
-    public int getCapacity() {
-        return capacity;
-    }
-
-    /**
      * Get the first element.
      * 
      * @return the first element
      */
     public E getFirst() {
-        return first.next.element;
+        return header.next.element;
     }
 
     /**
@@ -128,21 +158,30 @@ public class LinkedList<E> {
         return last.element;
     }
 
+    /**
+     * Get the size
+     * 
+     * @return the size
+     */
+    public int size() {
+        return size;
+    }
+
     private Node<E> node(int index) {
 
-        if (index < 0 || index >= capacity) {
-            throw new IndexOutOfBoundsException("Index: " + index + ", Capacity: " + capacity);
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
         }
 
-        if (index < (capacity / 2)) {
-            Node<E> node = first;
+        if (index < (size / 2)) {
+            Node<E> node = header;
             for (int i = 0; i <= index; i++) {
                 node = node.next;
             }
             return node;
         } else {
             Node<E> node = last;
-            for (int i = (capacity - 1); i > index; i--) {
+            for (int i = (size - 1); i > index; i--) {
                 node = node.prev;
             }
             return node;
