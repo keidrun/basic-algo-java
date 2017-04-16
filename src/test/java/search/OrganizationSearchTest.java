@@ -6,9 +6,12 @@ package search;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 
 import org.junit.Before;
+import org.junit.Test;
 import org.junit.experimental.runners.Enclosed;
 import org.junit.experimental.theories.DataPoints;
 import org.junit.experimental.theories.Theories;
@@ -59,6 +62,16 @@ public class OrganizationSearchTest {
                 assertThat(fixture.actualList.get(i), is(fixture.expectedList.get(i)));
             }
 
+        }
+
+        @Theory
+        @Test(expected = IllegalArgumentException.class)
+        public void wrongListType() {
+            List<Integer> list = new ArrayList<Integer>();
+            list.add(10);
+            list.add(20);
+            list.add(30);
+            sut.search(20, list);
         }
 
         static class Fixture {
