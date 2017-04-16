@@ -23,10 +23,10 @@ Basic algorithm library in java.
 | Organization Search |            O(N) |
 
 ## The order of Data structures
-| Data Structure | Add(Set)/Remove |             Search          |
-|:---------------|:---------------:|:---------------------------:|
-| Array          |            O(N) | Depends on Search algorithm |
-| LinkedList     |            O(1) | The same of 'Linear Search' |
+| Data Structure    | Add(Set)/Remove |             Search          |
+|:------------------|:---------------:|:---------------------------:|
+| Array(ArrayList)  |            O(N) | Depends on Search algorithm |
+| LinkedList        |            O(1) | The same of 'Linear Search' |
 
 [tests]:https://travis-ci.org/keidrun/basic-algo-java.svg?branch=master
 [tests-url]:https://travis-ci.org/keidrun/basic-algo-java
