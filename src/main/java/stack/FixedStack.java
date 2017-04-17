@@ -18,7 +18,7 @@ public class FixedStack<E> implements Stack<E> {
 
     public FixedStack(int size) {
         this.maxSize = size;
-        this.stack = new Integer[maxSize];
+        this.stack = new Object[maxSize];
         this.top = 0;
     }
 
