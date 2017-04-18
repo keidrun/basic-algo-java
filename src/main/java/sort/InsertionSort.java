@@ -6,11 +6,11 @@ package sort;
 import java.util.List;
 
 /**
- * Insert sort
+ * Insertion sort
  * 
  * @author Keid
  */
-public class InsertSort implements Sort<Integer> {
+public class InsertionSort implements Sort<Integer> {
 
     /*
      * (non-Javadoc)

@@ -6,11 +6,11 @@ package sort;
 import java.util.List;
 
 /**
- * Binary sort
+ * Binary Insertion sort
  * 
  * @author Keid
  */
-public class BinarySort implements Sort<Integer> {
+public class BinaryInsertionSort implements Sort<Integer> {
 
     /*
      * (non-Javadoc)

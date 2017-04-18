@@ -1,7 +1,7 @@
 /**
  * Copyright 2017 Keid
 */
-package queue;
+package stack;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.*;
@@ -9,23 +9,19 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import queue.FlexibleQueue;
+import stack.DynamicStack;
 
-/**
- * @author Keid
- *
- */
-public class FlexibleQueueTest {
+public class DynamicStackTest {
 
-    FlexibleQueue<Integer> sut;
+    DynamicStack<Integer> sut;
 
     @Before
     public void setUp() throws Exception {
-        sut = new FlexibleQueue<Integer>();
+        sut = new DynamicStack<Integer>();
     }
 
     @Test
-    public void testEnqueueAndDequeue() {
+    public void testPushAndPop() {
 
         // setup
         int first = 1;
@@ -37,20 +33,20 @@ public class FlexibleQueueTest {
         assertTrue(sut.isEmpty());
 
         // exercise
-        sut.enqueue(first);
-        sut.enqueue(second);
-        sut.enqueue(third);
-        sut.enqueue(fourth);
-        sut.enqueue(fifth);
+        sut.push(first);
+        sut.push(second);
+        sut.push(third);
+        sut.push(fourth);
+        sut.push(fifth);
 
         // verify
         assertEquals(5, sut.size());
         assertFalse(sut.isEmpty());
-        assertThat(sut.dequeue(), is(first));
-        assertThat(sut.dequeue(), is(second));
-        assertThat(sut.dequeue(), is(third));
-        assertThat(sut.dequeue(), is(fourth));
-        assertThat(sut.dequeue(), is(fifth));
+        assertThat(sut.pop(), is(fifth));
+        assertThat(sut.pop(), is(fourth));
+        assertThat(sut.pop(), is(third));
+        assertThat(sut.pop(), is(second));
+        assertThat(sut.pop(), is(first));
         assertEquals(0, sut.size());
         assertTrue(sut.isEmpty());
 

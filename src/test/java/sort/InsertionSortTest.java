@@ -17,14 +17,14 @@ import org.junit.experimental.theories.Theory;
 import org.junit.runner.RunWith;
 
 @RunWith(Enclosed.class)
-public class InsertSortTest {
+public class InsertionSortTest {
     @RunWith(Theories.class)
     public static class sortTest {
         static Sort<Integer> sut;
 
         @Before
         public void setup() throws Exception {
-            sut = new InsertSort();
+            sut = new InsertionSort();
         }
 
         // @formatter:off

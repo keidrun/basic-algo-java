@@ -11,11 +11,11 @@ import java.util.List;
  * 
  * @author Keid
  */
-public class FlexibleStack<E> implements Stack<E> {
+public class DynamicStack<E> implements Stack<E> {
 
     private transient List<E> list;
 
-    public FlexibleStack() {
+    public DynamicStack() {
         this.list = new LinkedList<E>();
     }
 

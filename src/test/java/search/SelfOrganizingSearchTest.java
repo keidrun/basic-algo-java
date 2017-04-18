@@ -19,7 +19,7 @@ import org.junit.experimental.theories.Theory;
 import org.junit.runner.RunWith;
 
 @RunWith(Enclosed.class)
-public class OrganizationSearchTest {
+public class SelfOrganizingSearchTest {
 
     @RunWith(Theories.class)
     public static class searchTest {
@@ -27,7 +27,7 @@ public class OrganizationSearchTest {
 
         @Before
         public void setup() throws Exception {
-            sut = new OrganizationSearch();
+            sut = new SelfOrganizingSearch();
         }
 
         // @formatter:off

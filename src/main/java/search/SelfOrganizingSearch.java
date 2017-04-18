@@ -7,10 +7,11 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
+ * Self-Organizing search
+ * 
  * @author Keid
- *
  */
-public class OrganizationSearch implements Search<Integer> {
+public class SelfOrganizingSearch implements Search<Integer> {
 
     /*
      * (non-Javadoc)

@@ -11,11 +11,11 @@ import java.util.List;
  * 
  * @author Keid
  */
-public class FlexibleQueue<E> implements Queue<E> {
+public class DynamicQueue<E> implements Queue<E> {
 
     private transient List<E> list;
 
-    public FlexibleQueue() {
+    public DynamicQueue() {
         list = new LinkedList<>();
     }
 
