@@ -3,7 +3,7 @@
 */
 package queue;
 
-import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.*;
 
 import org.junit.Before;
@@ -46,11 +46,11 @@ public class DynamicQueueTest {
         // verify
         assertEquals(5, sut.size());
         assertFalse(sut.isEmpty());
-        assertThat(sut.dequeue(), is(first));
-        assertThat(sut.dequeue(), is(second));
-        assertThat(sut.dequeue(), is(third));
-        assertThat(sut.dequeue(), is(fourth));
-        assertThat(sut.dequeue(), is(fifth));
+        assertThat(sut.dequeue(), equalTo(first));
+        assertThat(sut.dequeue(), equalTo(second));
+        assertThat(sut.dequeue(), equalTo(third));
+        assertThat(sut.dequeue(), equalTo(fourth));
+        assertThat(sut.dequeue(), equalTo(fifth));
         assertEquals(0, sut.size());
         assertTrue(sut.isEmpty());
 

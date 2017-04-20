@@ -3,7 +3,7 @@
 */
 package stack;
 
-import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.*;
 
 import org.junit.Before;
@@ -42,11 +42,11 @@ public class DynamicStackTest {
         // verify
         assertEquals(5, sut.size());
         assertFalse(sut.isEmpty());
-        assertThat(sut.pop(), is(fifth));
-        assertThat(sut.pop(), is(fourth));
-        assertThat(sut.pop(), is(third));
-        assertThat(sut.pop(), is(second));
-        assertThat(sut.pop(), is(first));
+        assertThat(sut.pop(), equalTo(fifth));
+        assertThat(sut.pop(), equalTo(fourth));
+        assertThat(sut.pop(), equalTo(third));
+        assertThat(sut.pop(), equalTo(second));
+        assertThat(sut.pop(), equalTo(first));
         assertEquals(0, sut.size());
         assertTrue(sut.isEmpty());
 

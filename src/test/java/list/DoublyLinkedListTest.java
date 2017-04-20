@@ -3,7 +3,7 @@
 */
 package list;
 
-import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 
@@ -37,23 +37,23 @@ public class DoublyLinkedListTest {
         // one
         sut.add(firstElement);
         assertEquals(1, sut.size());
-        assertThat(sut.get(0), is(firstElement));
+        assertThat(sut.get(0), equalTo(firstElement));
         // two
         sut.add(secondElement);
         assertEquals(2, sut.size());
-        assertThat(sut.get(1), is(secondElement));
+        assertThat(sut.get(1), equalTo(secondElement));
         // three
         sut.add(thirdElement);
         assertEquals(3, sut.size());
-        assertThat(sut.get(2), is(thirdElement));
+        assertThat(sut.get(2), equalTo(thirdElement));
         // four
         sut.add(fourthElement);
         assertEquals(4, sut.size());
-        assertThat(sut.get(3), is(fourthElement));
+        assertThat(sut.get(3), equalTo(fourthElement));
         // five
         sut.add(fifthElement);
         assertEquals(5, sut.size());
-        assertThat(sut.get(4), is(fifthElement));
+        assertThat(sut.get(4), equalTo(fifthElement));
 
     }
 
@@ -74,34 +74,34 @@ public class DoublyLinkedListTest {
         sut.add(fourthElement);
         sut.add(fifthElement);
         assertEquals(5, sut.size());
-        assertThat(sut.get(0), is(firstElement));
-        assertThat(sut.get(1), is(secondElement));
-        assertThat(sut.get(2), is(thirdElement));
-        assertThat(sut.get(3), is(fourthElement));
-        assertThat(sut.get(4), is(fifthElement));
+        assertThat(sut.get(0), equalTo(firstElement));
+        assertThat(sut.get(1), equalTo(secondElement));
+        assertThat(sut.get(2), equalTo(thirdElement));
+        assertThat(sut.get(3), equalTo(fourthElement));
+        assertThat(sut.get(4), equalTo(fifthElement));
 
         // remove middle
         int actualMid = sut.remove(2);
-        assertThat(actualMid, is(thirdElement));
+        assertThat(actualMid, equalTo(thirdElement));
         assertEquals(4, sut.size());
-        assertThat(sut.get(0), is(firstElement));
-        assertThat(sut.get(1), is(secondElement));
-        assertThat(sut.get(2), is(fourthElement));
-        assertThat(sut.get(3), is(fifthElement));
+        assertThat(sut.get(0), equalTo(firstElement));
+        assertThat(sut.get(1), equalTo(secondElement));
+        assertThat(sut.get(2), equalTo(fourthElement));
+        assertThat(sut.get(3), equalTo(fifthElement));
 
         // remove first
         int actualFirst = sut.remove(0);
-        assertThat(actualFirst, is(firstElement));
+        assertThat(actualFirst, equalTo(firstElement));
         assertEquals(3, sut.size());
-        assertThat(sut.get(0), is(secondElement));
-        assertThat(sut.get(1), is(fourthElement));
-        assertThat(sut.get(2), is(fifthElement));
+        assertThat(sut.get(0), equalTo(secondElement));
+        assertThat(sut.get(1), equalTo(fourthElement));
+        assertThat(sut.get(2), equalTo(fifthElement));
 
         // remove last
         sut.remove(2);
         assertEquals(2, sut.size());
-        assertThat(sut.get(0), is(secondElement));
-        assertThat(sut.get(1), is(fourthElement));
+        assertThat(sut.get(0), equalTo(secondElement));
+        assertThat(sut.get(1), equalTo(fourthElement));
 
     }
 
@@ -125,52 +125,52 @@ public class DoublyLinkedListTest {
         sut.add(fourthElement);
         sut.add(fifthElement);
         assertEquals(5, sut.size());
-        assertThat(sut.get(0), is(firstElement));
-        assertThat(sut.get(1), is(secondElement));
-        assertThat(sut.get(2), is(thirdElement));
-        assertThat(sut.get(3), is(fourthElement));
-        assertThat(sut.get(4), is(fifthElement));
-        assertThat(sut.getFirst(), is(firstElement));
-        assertThat(sut.getLast(), is(fifthElement));
+        assertThat(sut.get(0), equalTo(firstElement));
+        assertThat(sut.get(1), equalTo(secondElement));
+        assertThat(sut.get(2), equalTo(thirdElement));
+        assertThat(sut.get(3), equalTo(fourthElement));
+        assertThat(sut.get(4), equalTo(fifthElement));
+        assertThat(sut.getFirst(), equalTo(firstElement));
+        assertThat(sut.getLast(), equalTo(fifthElement));
 
         // set middle
         sut.set(2, sixthElement);
         assertEquals(6, sut.size());
-        assertThat(sut.get(0), is(firstElement));
-        assertThat(sut.get(1), is(secondElement));
-        assertThat(sut.get(2), is(sixthElement));
-        assertThat(sut.get(3), is(thirdElement));
-        assertThat(sut.get(4), is(fourthElement));
-        assertThat(sut.get(5), is(fifthElement));
-        assertThat(sut.getFirst(), is(firstElement));
-        assertThat(sut.getLast(), is(fifthElement));
+        assertThat(sut.get(0), equalTo(firstElement));
+        assertThat(sut.get(1), equalTo(secondElement));
+        assertThat(sut.get(2), equalTo(sixthElement));
+        assertThat(sut.get(3), equalTo(thirdElement));
+        assertThat(sut.get(4), equalTo(fourthElement));
+        assertThat(sut.get(5), equalTo(fifthElement));
+        assertThat(sut.getFirst(), equalTo(firstElement));
+        assertThat(sut.getLast(), equalTo(fifthElement));
 
         // set first
         sut.set(0, seventhElement);
         assertEquals(7, sut.size());
-        assertThat(sut.get(0), is(seventhElement));
-        assertThat(sut.get(1), is(firstElement));
-        assertThat(sut.get(2), is(secondElement));
-        assertThat(sut.get(3), is(sixthElement));
-        assertThat(sut.get(4), is(thirdElement));
-        assertThat(sut.get(5), is(fourthElement));
-        assertThat(sut.get(6), is(fifthElement));
-        assertThat(sut.getFirst(), is(seventhElement));
-        assertThat(sut.getLast(), is(fifthElement));
+        assertThat(sut.get(0), equalTo(seventhElement));
+        assertThat(sut.get(1), equalTo(firstElement));
+        assertThat(sut.get(2), equalTo(secondElement));
+        assertThat(sut.get(3), equalTo(sixthElement));
+        assertThat(sut.get(4), equalTo(thirdElement));
+        assertThat(sut.get(5), equalTo(fourthElement));
+        assertThat(sut.get(6), equalTo(fifthElement));
+        assertThat(sut.getFirst(), equalTo(seventhElement));
+        assertThat(sut.getLast(), equalTo(fifthElement));
 
         // set last
         sut.set(6, eighthElement);
         assertEquals(8, sut.size());
-        assertThat(sut.get(0), is(seventhElement));
-        assertThat(sut.get(1), is(firstElement));
-        assertThat(sut.get(2), is(secondElement));
-        assertThat(sut.get(3), is(sixthElement));
-        assertThat(sut.get(4), is(thirdElement));
-        assertThat(sut.get(5), is(fourthElement));
-        assertThat(sut.get(6), is(fifthElement));
-        assertThat(sut.get(7), is(eighthElement));
-        assertThat(sut.getFirst(), is(seventhElement));
-        assertThat(sut.getLast(), is(eighthElement));
+        assertThat(sut.get(0), equalTo(seventhElement));
+        assertThat(sut.get(1), equalTo(firstElement));
+        assertThat(sut.get(2), equalTo(secondElement));
+        assertThat(sut.get(3), equalTo(sixthElement));
+        assertThat(sut.get(4), equalTo(thirdElement));
+        assertThat(sut.get(5), equalTo(fourthElement));
+        assertThat(sut.get(6), equalTo(fifthElement));
+        assertThat(sut.get(7), equalTo(eighthElement));
+        assertThat(sut.getFirst(), equalTo(seventhElement));
+        assertThat(sut.getLast(), equalTo(eighthElement));
 
     }
 
@@ -226,9 +226,9 @@ public class DoublyLinkedListTest {
         sut.add(secondElement);
         sut.add(thirdElement);
         assertEquals(3, sut.size());
-        assertThat(sut.get(0), is(firstElement));
-        assertThat(sut.get(1), is(secondElement));
-        assertThat(sut.get(2), is(thirdElement));
+        assertThat(sut.get(0), equalTo(firstElement));
+        assertThat(sut.get(1), equalTo(secondElement));
+        assertThat(sut.get(2), equalTo(thirdElement));
 
         int additional = 99;
 
@@ -237,10 +237,10 @@ public class DoublyLinkedListTest {
 
         // verify
         assertEquals(4, sut.size());
-        assertThat(sut.get(0), is(additional));
-        assertThat(sut.get(1), is(firstElement));
-        assertThat(sut.get(2), is(secondElement));
-        assertThat(sut.get(3), is(thirdElement));
+        assertThat(sut.get(0), equalTo(additional));
+        assertThat(sut.get(1), equalTo(firstElement));
+        assertThat(sut.get(2), equalTo(secondElement));
+        assertThat(sut.get(3), equalTo(thirdElement));
 
     }
 
@@ -255,9 +255,9 @@ public class DoublyLinkedListTest {
         sut.add(secondElement);
         sut.add(thirdElement);
         assertEquals(3, sut.size());
-        assertThat(sut.get(0), is(firstElement));
-        assertThat(sut.get(1), is(secondElement));
-        assertThat(sut.get(2), is(thirdElement));
+        assertThat(sut.get(0), equalTo(firstElement));
+        assertThat(sut.get(1), equalTo(secondElement));
+        assertThat(sut.get(2), equalTo(thirdElement));
 
         int additional = 99;
 
@@ -266,10 +266,10 @@ public class DoublyLinkedListTest {
 
         // verify
         assertEquals(4, sut.size());
-        assertThat(sut.get(0), is(firstElement));
-        assertThat(sut.get(1), is(secondElement));
-        assertThat(sut.get(2), is(thirdElement));
-        assertThat(sut.get(3), is(additional));
+        assertThat(sut.get(0), equalTo(firstElement));
+        assertThat(sut.get(1), equalTo(secondElement));
+        assertThat(sut.get(2), equalTo(thirdElement));
+        assertThat(sut.get(3), equalTo(additional));
 
     }
 
@@ -284,18 +284,18 @@ public class DoublyLinkedListTest {
         sut.add(secondElement);
         sut.add(thirdElement);
         assertEquals(3, sut.size());
-        assertThat(sut.get(0), is(firstElement));
-        assertThat(sut.get(1), is(secondElement));
-        assertThat(sut.get(2), is(thirdElement));
+        assertThat(sut.get(0), equalTo(firstElement));
+        assertThat(sut.get(1), equalTo(secondElement));
+        assertThat(sut.get(2), equalTo(thirdElement));
 
         // exercise
         int actual = sut.removeFirst();
 
         // verify
         assertEquals(2, sut.size());
-        assertThat(sut.get(0), is(secondElement));
-        assertThat(sut.get(1), is(thirdElement));
-        assertThat(actual, is(firstElement));
+        assertThat(sut.get(0), equalTo(secondElement));
+        assertThat(sut.get(1), equalTo(thirdElement));
+        assertThat(actual, equalTo(firstElement));
 
     }
 
@@ -310,18 +310,18 @@ public class DoublyLinkedListTest {
         sut.add(secondElement);
         sut.add(thirdElement);
         assertEquals(3, sut.size());
-        assertThat(sut.get(0), is(firstElement));
-        assertThat(sut.get(1), is(secondElement));
-        assertThat(sut.get(2), is(thirdElement));
+        assertThat(sut.get(0), equalTo(firstElement));
+        assertThat(sut.get(1), equalTo(secondElement));
+        assertThat(sut.get(2), equalTo(thirdElement));
 
         // exercise
         int actual = sut.removeLast();
 
         // verify
         assertEquals(2, sut.size());
-        assertThat(sut.get(0), is(firstElement));
-        assertThat(sut.get(1), is(secondElement));
-        assertThat(actual, is(thirdElement));
+        assertThat(sut.get(0), equalTo(firstElement));
+        assertThat(sut.get(1), equalTo(secondElement));
+        assertThat(actual, equalTo(thirdElement));
 
     }
 

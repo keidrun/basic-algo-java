@@ -3,7 +3,7 @@
 */
 package sort;
 
-import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
 
 import java.util.Arrays;
@@ -54,9 +54,9 @@ public class InsertionSortTest {
             sut.sort(actualList);
 
             // verify
-            assertThat(actualList.size(), is(expectedList.size()));
+            assertThat(actualList.size(), equalTo(expectedList.size()));
             for (int i = 0; i < actualList.size(); i++) {
-                assertThat(actualList.get(i), is(expectedList.get(i)));
+                assertThat(actualList.get(i), equalTo(expectedList.get(i)));
             }
 
         }

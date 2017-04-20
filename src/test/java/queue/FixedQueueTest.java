@@ -3,7 +3,7 @@
 */
 package queue;
 
-import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.*;
 
 import org.junit.Before;
@@ -11,10 +11,6 @@ import org.junit.Test;
 
 import queue.FixedQueue;
 
-/**
- * @author Keid
- *
- */
 public class FixedQueueTest {
 
     FixedQueue<Integer> sut;
@@ -48,11 +44,11 @@ public class FixedQueueTest {
         assertEquals(5, sut.size());
         assertFalse(sut.isEmpty());
         assertTrue(sut.isFull());
-        assertThat(sut.dequeue(), is(first));
-        assertThat(sut.dequeue(), is(second));
-        assertThat(sut.dequeue(), is(third));
-        assertThat(sut.dequeue(), is(fourth));
-        assertThat(sut.dequeue(), is(fifth));
+        assertThat(sut.dequeue(), equalTo(first));
+        assertThat(sut.dequeue(), equalTo(second));
+        assertThat(sut.dequeue(), equalTo(third));
+        assertThat(sut.dequeue(), equalTo(fourth));
+        assertThat(sut.dequeue(), equalTo(fifth));
         assertEquals(0, sut.size());
         assertTrue(sut.isEmpty());
         assertFalse(sut.isFull());
@@ -118,16 +114,16 @@ public class FixedQueueTest {
         assertEquals(10, sut.size());
         assertTrue(sut.isFull());
 
-        assertThat(sut.dequeue(), is(first));
-        assertThat(sut.dequeue(), is(second));
-        assertThat(sut.dequeue(), is(third));
-        assertThat(sut.dequeue(), is(fourth));
-        assertThat(sut.dequeue(), is(fifth));
-        assertThat(sut.dequeue(), is(additionalOne));
-        assertThat(sut.dequeue(), is(additionalTwo));
-        assertThat(sut.dequeue(), is(additionalThree));
-        assertThat(sut.dequeue(), is(additionalFour));
-        assertThat(sut.dequeue(), is(additionalFive));
+        assertThat(sut.dequeue(), equalTo(first));
+        assertThat(sut.dequeue(), equalTo(second));
+        assertThat(sut.dequeue(), equalTo(third));
+        assertThat(sut.dequeue(), equalTo(fourth));
+        assertThat(sut.dequeue(), equalTo(fifth));
+        assertThat(sut.dequeue(), equalTo(additionalOne));
+        assertThat(sut.dequeue(), equalTo(additionalTwo));
+        assertThat(sut.dequeue(), equalTo(additionalThree));
+        assertThat(sut.dequeue(), equalTo(additionalFour));
+        assertThat(sut.dequeue(), equalTo(additionalFive));
 
         assertEquals(0, sut.size());
         assertTrue(sut.isEmpty());

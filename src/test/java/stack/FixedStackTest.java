@@ -3,7 +3,7 @@
 */
 package stack;
 
-import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.*;
 
 import org.junit.Before;
@@ -48,11 +48,11 @@ public class FixedStackTest {
         assertEquals(5, sut.size());
         assertFalse(sut.isEmpty());
         assertTrue(sut.isFull());
-        assertThat(sut.pop(), is(fifth));
-        assertThat(sut.pop(), is(fourth));
-        assertThat(sut.pop(), is(third));
-        assertThat(sut.pop(), is(second));
-        assertThat(sut.pop(), is(first));
+        assertThat(sut.pop(), equalTo(fifth));
+        assertThat(sut.pop(), equalTo(fourth));
+        assertThat(sut.pop(), equalTo(third));
+        assertThat(sut.pop(), equalTo(second));
+        assertThat(sut.pop(), equalTo(first));
         assertEquals(0, sut.size());
         assertTrue(sut.isEmpty());
         assertFalse(sut.isFull());
@@ -118,16 +118,16 @@ public class FixedStackTest {
         assertEquals(10, sut.size());
         assertTrue(sut.isFull());
 
-        assertThat(sut.pop(), is(additionalFive));
-        assertThat(sut.pop(), is(additionalFour));
-        assertThat(sut.pop(), is(additionalThree));
-        assertThat(sut.pop(), is(additionalTwo));
-        assertThat(sut.pop(), is(additionalOne));
-        assertThat(sut.pop(), is(fifth));
-        assertThat(sut.pop(), is(fourth));
-        assertThat(sut.pop(), is(third));
-        assertThat(sut.pop(), is(second));
-        assertThat(sut.pop(), is(first));
+        assertThat(sut.pop(), equalTo(additionalFive));
+        assertThat(sut.pop(), equalTo(additionalFour));
+        assertThat(sut.pop(), equalTo(additionalThree));
+        assertThat(sut.pop(), equalTo(additionalTwo));
+        assertThat(sut.pop(), equalTo(additionalOne));
+        assertThat(sut.pop(), equalTo(fifth));
+        assertThat(sut.pop(), equalTo(fourth));
+        assertThat(sut.pop(), equalTo(third));
+        assertThat(sut.pop(), equalTo(second));
+        assertThat(sut.pop(), equalTo(first));
         assertEquals(0, sut.size());
         assertTrue(sut.isEmpty());
 

@@ -3,7 +3,7 @@
 */
 package search;
 
-import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
 
 import java.util.ArrayList;
@@ -56,10 +56,10 @@ public class SelfOrganizingSearchTest {
             int actualIndex = sut.search(fixture.item, fixture.actualList);
 
             // verify
-            assertThat(actualIndex, is(expectedIndex));
+            assertThat(actualIndex, equalTo(expectedIndex));
 
             for (int i = 0; i < fixture.actualList.size(); i++) {
-                assertThat(fixture.actualList.get(i), is(fixture.expectedList.get(i)));
+                assertThat(fixture.actualList.get(i), equalTo(fixture.expectedList.get(i)));
             }
 
         }

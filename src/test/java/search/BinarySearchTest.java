@@ -3,7 +3,7 @@
 */
 package search;
 
-import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
 
 import java.lang.reflect.Method;
@@ -57,7 +57,7 @@ public class BinarySearchTest {
             int actualIndex = sut.search(fixture.item, fixture.list);
 
             // verify
-            assertThat(actualIndex, is(expectedIndex));
+            assertThat(actualIndex, equalTo(expectedIndex));
 
         }
 
@@ -112,11 +112,11 @@ public class BinarySearchTest {
                     patternRIGHT);
 
             // verify
-            assertThat(actualIndexOfMid, is(expectedIndexOfMid));
-            assertThat(actualIndexOfLeft1, is(expectedIndexOfLeft1));
-            assertThat(actualIndexOfLeft2, is(expectedIndexOfLeft2));
-            assertThat(actualIndexOfRight1, is(expectedIndexOfRight1));
-            assertThat(actualIndexOfRight2, is(expectedIndexOfRight2));
+            assertThat(actualIndexOfMid, equalTo(expectedIndexOfMid));
+            assertThat(actualIndexOfLeft1, equalTo(expectedIndexOfLeft1));
+            assertThat(actualIndexOfLeft2, equalTo(expectedIndexOfLeft2));
+            assertThat(actualIndexOfRight1, equalTo(expectedIndexOfRight1));
+            assertThat(actualIndexOfRight2, equalTo(expectedIndexOfRight2));
 
         }
 

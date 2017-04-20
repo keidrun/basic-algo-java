@@ -1,11 +1,10 @@
 apply plugin: 'java'
 apply plugin: 'jacoco'
 
-def compatibility = 1.8
 def defaultEncoding = 'UTF-8'
 
-sourceCompatibility = compatibility
-targetCompatibility = compatibility
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
 tasks.withType(JavaCompile){
     options.encoding = defaultEncoding
@@ -16,8 +15,10 @@ repositories {
 }
 
 dependencies {
-    compile 'org.slf4j:slf4j-api:1.7.21'
-    testCompile 'junit:junit:4.12'
+    testCompile ('junit:junit:4.12') {
+        exclude module: 'hamcrest-core'
+    }
+    testCompile 'org.hamcrest:hamcrest-all:1.3'
 }
 
 // for Enclosed Test

@@ -3,7 +3,7 @@
 */
 package search;
 
-import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
 
 import java.util.Arrays;
@@ -54,7 +54,7 @@ public class LinearSearchTest {
             int actualIndex = sut.search(fixture.item, fixture.list);
 
             // verify
-            assertThat(actualIndex, is(expectedIndex));
+            assertThat(actualIndex, equalTo(expectedIndex));
 
         }
 
