@@ -17,7 +17,7 @@ import org.junit.experimental.theories.Theory;
 import org.junit.runner.RunWith;
 
 @RunWith(Enclosed.class)
-public class LinearSearchTest {
+public class SentinelLinearSearchTest {
 
     @RunWith(Theories.class)
     public static class searchTest {
@@ -25,7 +25,7 @@ public class LinearSearchTest {
 
         @Before
         public void setup() throws Exception {
-            sut = new LinearSearch();
+            sut = new SentinelLinearSearch();
         }
 
         // @formatter:off
